@@ -14,7 +14,8 @@ class CriteriaController extends Controller
      */
     public function index()
     {
-        //
+        $criterias =  Criteria::all();
+        return view('criterias.index', compact('criterias'));
     }
 
     /**
@@ -24,7 +25,7 @@ class CriteriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('criterias.create');
     }
 
     /**
@@ -35,7 +36,11 @@ class CriteriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=> 'required|min:3|max:50'
+        ]);
+        Criteria::create($request->all());
+        return redirect()->route('criteria.create')->with('status','Criteria Succesfully Created');
     }
 
     /**
@@ -46,7 +51,8 @@ class CriteriaController extends Controller
      */
     public function show(Criteria $criteria)
     {
-        //
+
+        return view('criterias.show');
     }
 
     /**
@@ -56,8 +62,8 @@ class CriteriaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Criteria $criteria)
-    {
-        //
+    {   
+        return view('criterias.edit',compact('criteria'));
     }
 
     /**
@@ -69,7 +75,14 @@ class CriteriaController extends Controller
      */
     public function update(Request $request, Criteria $criteria)
     {
-        //
+        $request->validate([
+            'name'=> 'required|min:3|max:50'
+        ]);
+        $criteria->update([
+            'name'=>$request->name
+        ]);
+        return redirect()->route('criteria.edit',['criterion'=>$criteria])->with('status','Criteria Succesfully Updated');
+
     }
 
     /**
@@ -80,6 +93,7 @@ class CriteriaController extends Controller
      */
     public function destroy(Criteria $criteria)
     {
-        //
+        $criteria->delete();
+        return redirect()->route('criteria.index')->with('status','Criteria Succesfully Deleted');
     }
 }

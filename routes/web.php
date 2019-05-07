@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('criteria', 'CriteriaController');
+
+Route::get('/analysis/criteria','AnalisaCriteriaController@index')->name('analysiscriteria.index');
+Route::post('/analysis/criteria/proses','AnalisaCriteriaController@proses')->name('analisyscriteria.proses');
+Route::get('/tests', function () {
+    return view('dashboard');
+});
