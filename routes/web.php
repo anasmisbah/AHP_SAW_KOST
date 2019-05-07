@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('criteria', 'CriteriaController');
-
+Route::resource('user', 'UserController');
 Route::get('/analysis/criteria','AnalisaCriteriaController@index')->name('analysiscriteria.index');
 Route::post('/analysis/criteria/proses','AnalisaCriteriaController@proses')->name('analisyscriteria.proses');
 Route::get('/tests', function () {
