@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+
 class UserController extends Controller
 {
     /**
@@ -24,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
@@ -35,7 +38,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role = $request->role;
+        if ($request->file('avatar')) {
+            $file = $request->file('avatar')->store('avatars','public');
+            $user->avatar = $file;
+        }
+        $user->save();
+        return redirect()->route('user.index')->with('status','Pengguna baru berhasil ditambahkan');
+
     }
 
     /**
@@ -57,7 +72,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('user.edit',compact('user'));
     }
 
     /**
@@ -69,7 +85,25 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+    
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        if (!empty($request->password)) {
+            $user->password = Hash::make($request->password);    
+        }
+        
+        $user->role = $request->role;
+        if ($request->file('avatar')) {
+            if ($user->avatar && file_exists(storage_path('app/public/'.$user->avatar))) {
+                Storage::delete('public/'.$user->avatar);
+            }
+            $file = $request->file('avatar')->store('avatars','public');
+            $user->avatar = $file;
+        }
+        $user->save();
+        return redirect()->route('user.index')->with('status','Pengguna berhasil diubah');
     }
 
     /**
@@ -80,6 +114,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        if ($user->avatar && file_exists(storage_path('app/public/'.$user->avatar))) {
+            Storage::delete('public/'.$user->avatar);
+        }
+        $user->delete();
+       return redirect()->route('users.index')->with('status', 'pengguna berhasil dihapus');
     }
 }

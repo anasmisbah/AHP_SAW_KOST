@@ -12,7 +12,6 @@ class AdminTableSeeder extends Seeder
     public function run()
     {
         $administrator = new \App\User;
-        $administrator->username = "administrator";
         $administrator->name = "administrator A";
         $administrator->email = "administrator@spkkost.com";
         $administrator->role = "admin";

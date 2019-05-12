@@ -22,3 +22,10 @@ Route::post('/analysis/criteria/proses','AnalisaCriteriaController@proses')->nam
 Route::get('/tests', function () {
     return view('dashboard');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('auth/{provider}','Auth\SocialiteController@redirectToProvider');
+Route::get('auth/{provider}/callback','Auth\SocialiteController@handleProviderCallback');

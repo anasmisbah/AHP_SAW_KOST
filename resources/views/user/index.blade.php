@@ -65,9 +65,9 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->role }}</td>
-                                            <td><img src="{{ $user->avatar }}" alt=""></td>
+                                            <td><img src="{{ asset('storage/'.$user->avatar) }}" width="50px" alt="user photo"></td>
                                             <td>
-                                                <a href="{{ route('criteria.edit',['criterion'=>$user->id]) }}" class="btn btn-outline-warning btn-sm">
+                                                <a href="{{ route('user.edit',['user'=>$user->id]) }}" class="btn btn-outline-warning btn-sm">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
                                                 <a href="#" class="btn btn-outline-danger btn-sm" onclick="confirm('are you sure'); event.preventDefault();
@@ -77,7 +77,7 @@
                                                 <a href="" class="btn btn-outline-success btn-sm">
                                                     <i class="fa fa-location-arrow"></i>
                                                 </a>                         
-                                                <form  id="delete-form{{ $user->id }}" action="{{ route('criteria.destroy',['criterion'=>$user]) }}" method="post">
+                                                <form  id="delete-form{{ $user->id }}" action="{{ route('user.destroy',['user'=>$user]) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                 </form>
