@@ -61,6 +61,24 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class="form-control-label">Category</label></div>
+                                <div class="col col-md-9">
+                                    <div class="form-check">
+                                        <div class="radio">
+                                            <label for="benefit" class="form-check-label ">
+                                                <input type="radio" id="benefit" name="category" value="benefit" class="form-check-input">Benefit
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label for="cost" class="form-check-label ">
+                                                <input type="radio" id="cost" name="category" value="cost" class="form-check-input">Cost
+                                            </label>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-success btn-sm">

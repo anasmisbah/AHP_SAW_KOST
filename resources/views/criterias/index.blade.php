@@ -56,6 +56,7 @@
                             <thead>
                                 <tr>
                                     <th>Name</th>
+                                    <th>Category</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -63,6 +64,7 @@
                                 @foreach ($criterias as $criteria)
                                     <tr>
                                         <td>{{ $criteria->name }}</td>
+                                        <td>{{ $criteria->category }}</td>
                                         <td>
                                             <a href="{{ route('criteria.edit',['criterion'=>$criteria->id]) }}" class="btn btn-outline-warning btn-sm">
                                                 <i class="fa fa-edit"></i>

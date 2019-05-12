@@ -76,10 +76,12 @@ class CriteriaController extends Controller
     public function update(Request $request, Criteria $criteria)
     {
         $request->validate([
-            'name'=> 'required|min:3|max:50'
+            'name'=> 'required|min:3|max:50',
+            'category'=>'required'
         ]);
         $criteria->update([
-            'name'=>$request->name
+            'name'=>$request->name,
+            'category'=>$request->category
         ]);
         return redirect()->route('criteria.edit',['criterion'=>$criteria])->with('status','Criteria Succesfully Updated');
 
