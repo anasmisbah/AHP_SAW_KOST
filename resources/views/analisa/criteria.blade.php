@@ -32,6 +32,13 @@
             @for ($j=$i+1; $j <= ($jumlahkriteria - 1) ; $j++)
             @php
                 $urut++;
+                $nilai= null ;
+                $first = true;
+                if ($oldPerbandingan->count()) {
+                   $nilai = $oldPerbandingan->where('criteria1_id',$i+1)->where('criteria2_id',$j+1)->first()->nilai;
+                   $first = false;
+                }
+                
             @endphp
             <div class="col-lg-6">
                     <div class="card">
@@ -46,23 +53,23 @@
                                             
                                             <div class="form-check-inline form-check">
                                                     <label for="inline-radio1" class="form-check-label ">
-                                                        <input type="radio" id="inline-radio1" name="pilihan[{{ $urut }}]" value="1" class="form-check-input">{{ $kriteria[$i]->name }}
+                                                        <input  type="radio" id="inline-radio1" name="pilihan[{{ $urut }}]" value="1" class="form-check-input" 
+                                                        {{ !$first ? $nilai >= 1?'checked':'' :''}} >{{ $kriteria[$i]->name }}
                                                     </label>
                                                     <label for="inline-radio2" class="form-check-label ">
-                                                        <input type="radio" id="inline-radio2" name="pilihan[{{ $urut }}]" value="2" class="form-check-input">{{ $kriteria[$j]->name }}
+                                                        <input type="radio" id="inline-radio2" name="pilihan[{{ $urut }}]" value="2" class="form-check-input" 
+                                                             {{ !$first ? $nilai <1?'checked':'':'' }}>{{ $kriteria[$j]->name }}
                                                     </label>
-                                                    
                                                 </div>
-            
                                                 <span class="help-block">Pilihlah kriteria yang paling penting</span>
-            
-                                            
                                         </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="nilai" class=" form-control-label">Nilai Perbandingan</label></div>
                                     <div class="col-12 col-md-9">
-                                            <input type="float" max="9" id="nilai" name="bobot[{{ $urut }}]" placeholder="masukkan nilai" class="form-control">
+                                            <input type="float" max="9" id="nilai" 
+                                            value="{{ !$first ? $nilai >= 1 ?  $nilai : round(1/$nilai):'' }}" 
+                                            name="bobot[{{ $urut }}]" placeholder="masukkan nilai" class="form-control">
             
                                         <span class="help-block">Masukkan Nilai Perbandingan antara kedua kriteria</span></div>
                                 </div>

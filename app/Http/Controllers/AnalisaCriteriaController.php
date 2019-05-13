@@ -13,10 +13,14 @@ class AnalisaCriteriaController extends Controller
     public function index()
     {
         $jumlahkriteria = Criteria::count();
+        
+        
         $kriteria = Criteria::all();
         $urut = 0;
-        
-        return view('analisa.criteria',['jumlahkriteria'=>$jumlahkriteria,'kriteria'=>$kriteria,'urut'=>$urut]);
+        $oldPerbandingan = Perbandingankriteria::where('user_id','1')->get();
+        // dd($oldPerbandingan->count());
+        // dd($oldPerbandingan->where('criteria1_id',1+1)->where('criteria2_id',2+1)->first()->nilai);
+        return view('analisa.criteria',['jumlahkriteria'=>$jumlahkriteria,'kriteria'=>$kriteria,'urut'=>$urut,'oldPerbandingan'=>$oldPerbandingan]);
     }
 
     public function proses(Request $request)
@@ -41,11 +45,11 @@ class AnalisaCriteriaController extends Controller
 
                 Perbandingankriteria::updateOrCreate(
                     [
-                    'criteria1_id' => $kriteria[$x]->id,
-                    'criteria2_id' => $kriteria[$y]->id,
-                    'user_id' =>1
+                        'user_id' =>1
                     ],
                     [
+                        'criteria1_id' => $kriteria[$x]->id,
+                        'criteria2_id' => $kriteria[$y]->id,
                         'nilai'=> $matrikskriteria[$x][$y],
                     ]
                 );
