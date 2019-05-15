@@ -45,11 +45,12 @@ class AnalisaCriteriaController extends Controller
 
                 Perbandingankriteria::updateOrCreate(
                     [
+                        'criteria1_id' => $kriteria[$x]->id,
+                        'criteria2_id' => $kriteria[$y]->id,
                         'user_id' =>1
                     ],
                     [
-                        'criteria1_id' => $kriteria[$x]->id,
-                        'criteria2_id' => $kriteria[$y]->id,
+                        
                         'nilai'=> $matrikskriteria[$x][$y],
                     ]
                 );

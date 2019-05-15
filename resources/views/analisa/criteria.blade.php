@@ -2,6 +2,13 @@
 @section('title')
     Perbandingan Criteria
 @endsection
+@section('cssadd')
+    <style>
+        body{
+            margin-bottom: 40px
+        }
+    </style>
+@endsection
 @section('breadcumbs')
 <div class="breadcrumbs">
     <div class="col-sm-4">
@@ -48,28 +55,28 @@
                         <div class="card-body card-block">
                             
                                 <div class="row form-group">
-                                    <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Kriteria</label></div>
-                                    <div class="col-12 col-md-9">
+                                    <div class="col col-md-4"><label for="hf-email" class=" form-control-label">Kriteria</label></div>
+                                    <div class="col-12 col-md-8">
                                             
-                                            <div class="form-check-inline form-check">
-                                                    <label for="inline-radio1" class="form-check-label ">
-                                                        <input  type="radio" id="inline-radio1" name="pilihan[{{ $urut }}]" value="1" class="form-check-input" 
-                                                        {{ !$first ? $nilai >= 1?'checked':'' :''}} >{{ $kriteria[$i]->name }}
-                                                    </label>
-                                                    <label for="inline-radio2" class="form-check-label ">
-                                                        <input type="radio" id="inline-radio2" name="pilihan[{{ $urut }}]" value="2" class="form-check-input" 
-                                                             {{ !$first ? $nilai <1?'checked':'':'' }}>{{ $kriteria[$j]->name }}
-                                                    </label>
-                                                </div>
+                                            
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input required type="radio" id="{{ $kriteria[$i]->name.$urut }}" name="pilihan[{{ $urut }}]" value="1" class="custom-control-input" {{ !$first ? $nilai >= 1?'checked':'' :''}}>
+                                                    <label class="custom-control-label" for="{{ $kriteria[$i]->name.$urut }}">{{ $kriteria[$i]->name }}</label>
+                                                  </div>
+                                                  <div class="custom-control custom-radio custom-control-inline">
+                                                    <input required type="radio" id="{{ $kriteria[$j]->name.$urut }}" name="pilihan[{{ $urut }}]" value="2" class="custom-control-input"  {{ !$first ? $nilai <1?'checked':'':'' }}>
+                                                    <label class="custom-control-label" for="{{ $kriteria[$j]->name.$urut }}">{{ $kriteria[$j]->name }}</label>
+                                                  </div>
+                                                  <br>
                                                 <span class="help-block">Pilihlah kriteria yang paling penting</span>
                                         </div>
                                 </div>
                                 <div class="row form-group">
-                                    <div class="col col-md-3"><label for="nilai" class=" form-control-label">Nilai Perbandingan</label></div>
-                                    <div class="col-12 col-md-9">
+                                    <div class="col col-md-4"><label for="nilai" class=" form-control-label">Nilai Perbandingan</label></div>
+                                    <div class="col-12 col-md-8">
                                             <input type="float" max="9" id="nilai" 
                                             value="{{ !$first ? $nilai >= 1 ?  $nilai : round(1/$nilai):'' }}" 
-                                            name="bobot[{{ $urut }}]" placeholder="masukkan nilai" class="form-control">
+                                            name="bobot[{{ $urut }}]" placeholder="masukkan nilai" class="form-control" required>
             
                                         <span class="help-block">Masukkan Nilai Perbandingan antara kedua kriteria</span></div>
                                 </div>
