@@ -70,17 +70,18 @@
                                                 <a href="{{ route('user.edit',['user'=>$user->id]) }}" class="btn btn-outline-warning btn-sm">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-outline-danger btn-sm" onclick="confirm('are you sure'); event.preventDefault();
-                                                document.getElementById('delete-form{{ $user->id }}').submit();">
-                                                    <i class="fa fa-trash-o"></i>
-                                                </a>
+                                                <form class="d-inline"
+                                                onsubmit="return confirm('Apakah anda ingin menghapus Pengguna secara permanen?')" 
+                                                action="{{route('user.destroy', $user->id)}}" 
+                                                method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-outline-danger btn-sm">
+                                                        <i class="fa fa-trash"></i></button>
+                                                </form>
                                                 <a href="" class="btn btn-outline-success btn-sm">
                                                     <i class="fa fa-location-arrow"></i>
                                                 </a>                         
-                                                <form  id="delete-form{{ $user->id }}" action="{{ route('user.destroy',['user'=>$user]) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

@@ -53,41 +53,55 @@
                     
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="name" class=" form-control-label">Name</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="name" name="name" placeholder="Name..." class="form-control"><small class="form-text text-muted">Input User Name</small></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="username" class=" form-control-label">Username</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="username" name="username" placeholder="username..." class="form-control"><small class="form-text text-muted">Input User username</small></div>
+                            <div class="col-12 col-md-9"><input value="{{ old('name') }}" type="text" id="name" name="name" placeholder="Name..." class="form-control {{ $errors->first('name')?'is-invalid':'' }}"><small class="form-text text-muted">Input User Name</small>
+                                <div class="invalid-feedback">
+                                    {{$errors->first('name')}}
+                                </div>
+                            </div>
+                            
                         </div>
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="email" class=" form-control-label">Email</label></div>
-                            <div class="col-12 col-md-9"><input type="email" id="email" name="email" placeholder="Email..." class="form-control"><small class="help-block form-text">Please enter user email</small></div>
+                            <div class="col-12 col-md-9"><input value="{{ old('email') }}" type="email" id="email" name="email" placeholder="Email..." class="form-control  {{ $errors->first('email')?'is-invalid':'' }}"><small class="help-block form-text">Please enter user email</small>
+                                <div class="invalid-feedback">
+                                    {{$errors->first('email')}}
+                                </div>
+                            </div>
+                            
                         </div>
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="password-input" class=" form-control-label">Password</label></div>
-                            <div class="col-12 col-md-9"><input type="password" id="password-input" name="password" placeholder="Password..." class="form-control"><small class="help-block form-text">Please enter a complex password</small></div>
+                            <div class="col-12 col-md-9"><input type="password" id="password-input" name="password" placeholder="Password..." class="form-control  {{ $errors->first('password')?'is-invalid':'' }}"><small class="help-block form-text">Please enter a complex password</small>
+                                <div class="invalid-feedback">
+                                    {{$errors->first('password')}}
+                                </div>
+                            </div>
+                            
                         </div>    
                             <div class="row form-group">
                                 <div class="col col-md-3"><label class=" form-control-label">Role</label></div>
                                 <div class="col col-md-9">
-                                    <div class="form-check">
-                                        <div class="radio">
-                                            <label for="admin" class="form-check-label ">
-                                                <input type="radio" id="admin" name="role" value="admin" class="form-check-input">Admin
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label for="member" class="form-check-label ">
-                                                <input type="radio" id="member" name="role" value="member" class="form-check-input">Member
-                                            </label>
-                                        </div>
-                                        
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input {{ old('role') == 'admin'?'checked':'' }} required type="radio" id="admin" name="role" value="admin" class="custom-control-input">
+                                        <label class="custom-control-label" for="admin">Admin</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input {{ old('role') == 'member'?'checked':'' }} required type="radio" id="member" name="role" value="member" class="custom-control-input">
+                                        <label class="custom-control-label" for="member">Member</label>
                                     </div>
                                 </div>
                             </div>  
                             <div class="row form-group">
-                                <div class="col col-md-3"><label for="avatar" class=" form-control-label">Avatar</label></div>
-                                <div class="col-12 col-md-9"><input type="file" id="avatar" name="avatar" class="form-control-file"></div>
+                                <div class="col col-md-3"><label for="avatar" class="form-control-label">Avatar</label></div>
+                                <div class="col-12 col-md-9">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input {{$errors->first('avatar')? "is-invalid": ""}} " name="avatar" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                        <div class="invalid-feedback">
+                                            {{$errors->first('avatar')}}
+                                        </div>
+                                        <label class="custom-file-label" for="inputGroupFile01">Avatar</label>
+                                    </div>
+                                </div>
                             </div>
                     
                 </div>

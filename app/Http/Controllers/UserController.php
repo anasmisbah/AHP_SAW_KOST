@@ -38,6 +38,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|email',
+            'password'=>'required|min:6',
+        ]);
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
@@ -84,8 +89,13 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-    
         $user = User::findOrFail($id);
+
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|email|unique:users,email,'.$user->id,
+        ]);
+
         $user->name = $request->name;
         $user->email = $request->email;
         if (!empty($request->password)) {
@@ -117,6 +127,6 @@ class UserController extends Controller
             Storage::delete('public/'.$user->avatar);
         }
         $user->delete();
-       return redirect()->route('users.index')->with('status', 'pengguna berhasil dihapus');
+       return redirect()->route('user.index')->with('status', 'pengguna berhasil dihapus');
     }
 }
