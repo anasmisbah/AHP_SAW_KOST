@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Criteria extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name','category'];
+    public function kosts()
+    {
+        return $this->belongsToMany(Kost::class)->withPivot('value')->withTimestamps();
+    }
 }
