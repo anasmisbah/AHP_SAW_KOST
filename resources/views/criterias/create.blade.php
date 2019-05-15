@@ -54,7 +54,7 @@
                                 <div class="col col-md-12">
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-tags"></i></div>
-                                        <input type="text" name="name" placeholder="Criteria" class="form-control {{ $errors->first('name')? "is-invalid": "" }}" value="{{ old('name') }}">
+                                        <input required type="text" name="name" placeholder="Criteria" class="form-control {{ $errors->first('name')? "is-invalid": "" }}" value="{{ old('name') }}">
                                         <div class="invalid-feedback">
                                                 {{$errors->first('name')}}
                                         </div>
@@ -64,19 +64,17 @@
                             <div class="row form-group">
                                 <div class="col col-md-3"><label class="form-control-label">Category</label></div>
                                 <div class="col col-md-9">
-                                    <div class="form-check">
-                                        <div class="radio">
-                                            <label for="benefit" class="form-check-label ">
-                                                <input type="radio" id="benefit" name="category" value="benefit" class="form-check-input">Benefit
-                                            </label>
+                                    
+                                        <div class="custom-control custom-radio custom-control-inline is-invalid">
+                                            <input type="radio" value="benefit" id="benefit" name="category" class="custom-control-input" required>
+                                            <label class="custom-control-label" for="benefit">Benefit</label>
                                         </div>
-                                        <div class="radio">
-                                            <label for="cost" class="form-check-label ">
-                                                <input type="radio" id="cost" name="category" value="cost" class="form-check-input">Cost
-                                            </label>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="cost" name="category" value="cost" class="custom-control-input" required>
+                                            <label class="custom-control-label" for="cost">Cost</label>
                                         </div>
                                         
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

@@ -69,17 +69,18 @@
                                             <a href="{{ route('criteria.edit',['criterion'=>$criteria->id]) }}" class="btn btn-outline-warning btn-sm">
                                                 <i class="fa fa-edit"></i>
                                             </a>
-                                            <a href="#" class="btn btn-outline-danger btn-sm" onclick="confirm('are you sure'); event.preventDefault();
-                                            document.getElementById('delete-form{{ $criteria->id }}').submit();">
-                                                <i class="fa fa-trash-o"></i>
-                                            </a>
+                                            <form class="d-inline"
+                                                onsubmit="return confirm('Apakah anda ingin menghapus Kriteria secara permanen?')" 
+                                                action="{{route('criteria.destroy', $criteria->id)}}" 
+                                                method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-outline-danger btn-sm">
+                                                        <i class="fa fa-trash"></i></button>
+                                                </form>
                                             <a href="" class="btn btn-outline-success btn-sm">
                                                 <i class="fa fa-location-arrow"></i>
-                                            </a>                         
-                                            <form  id="delete-form{{ $criteria->id }}" action="{{ route('criteria.destroy',['criterion'=>$criteria]) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                            </form>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

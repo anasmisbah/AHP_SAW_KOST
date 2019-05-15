@@ -37,10 +37,11 @@ class CriteriaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=> 'required|min:3|max:50'
+            'name'=> 'required|min:3|max:50',
+            'category'=>'required'
         ]);
         Criteria::create($request->all());
-        return redirect()->route('criteria.create')->with('status','Criteria Succesfully Created');
+        return redirect()->route('criteria.index')->with('status','Kriteria Baru berhasil dibuat');
     }
 
     /**
@@ -83,7 +84,7 @@ class CriteriaController extends Controller
             'name'=>$request->name,
             'category'=>$request->category
         ]);
-        return redirect()->route('criteria.edit',['criterion'=>$criteria])->with('status','Criteria Succesfully Updated');
+        return redirect()->route('criteria.index')->with('status','Kriteria Berhasil diubah');
 
     }
 
@@ -96,6 +97,6 @@ class CriteriaController extends Controller
     public function destroy(Criteria $criteria)
     {
         $criteria->delete();
-        return redirect()->route('criteria.index')->with('status','Criteria Succesfully Deleted');
+        return redirect()->route('criteria.index')->with('status','Kriteria Berhasil dihapus');
     }
 }

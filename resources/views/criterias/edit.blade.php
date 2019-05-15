@@ -62,6 +62,19 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class="form-control-label">Category</label></div>
+                                <div class="col col-md-9">
+                                    <div class="custom-control custom-radio custom-control-inline is-invalid">
+                                        <input {{ $criteria->category == 'benefit'?'checked':'' }} type="radio" value="benefit" id="benefit" name="category" class="custom-control-input" required>
+                                        <label class="custom-control-label" for="benefit">Benefit</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input {{ $criteria->category == 'cost'?'checked':'' }} type="radio" id="cost" name="category" value="cost" class="custom-control-input" required>
+                                        <label class="custom-control-label" for="cost">Cost</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-success btn-sm">
