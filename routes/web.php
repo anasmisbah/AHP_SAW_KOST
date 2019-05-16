@@ -31,7 +31,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('auth/{provider}','Auth\SocialiteController@redirectToProvider');
 Route::get('auth/{provider}/callback','Auth\SocialiteController@handleProviderCallback');
-
+Route::resource('kost', 'KostController');
 Route::get('/addkost', function () {
     $value =[
         1=>['value'=>700000],

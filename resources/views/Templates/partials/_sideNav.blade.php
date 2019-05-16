@@ -17,7 +17,7 @@
                 <a href="{{ route('user.index') }}"> <i class="menu-icon fa fa-users"></i>User</a>
             </li>
             <li >
-                <a href="index.html"> <i class="menu-icon fa fa-home"></i>Kost</a>
+                <a href="{{ route('kost.index') }}"> <i class="menu-icon fa fa-home"></i>Kost</a>
             </li>
             <li >
                 <a href="{{ route('criteria.index') }}"> <i class="menu-icon fa fa-tags"></i>Criteria </a>
