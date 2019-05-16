@@ -21,9 +21,9 @@ Route::resource('criteria', 'CriteriaController');
 Route::resource('user', 'UserController');
 Route::get('/analysis/criteria','AnalisaCriteriaController@index')->name('analysiscriteria.index');
 Route::post('/analysis/criteria/proses','AnalisaCriteriaController@proses')->name('analisyscriteria.proses');
-Route::get('/tests', function () {
+Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->name('spkkost.dashboard');
 
 Auth::routes();
 

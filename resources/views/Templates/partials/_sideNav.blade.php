@@ -11,7 +11,7 @@
     <div id="main-menu" class="main-menu collapse navbar-collapse">
         <ul class="nav navbar-nav">
             <li >
-                <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                <a href="{{ route('spkkost.dashboard') }}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
             </li>
             <li >
                 <a href="{{ route('user.index') }}"> <i class="menu-icon fa fa-users"></i>User</a>

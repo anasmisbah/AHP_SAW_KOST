@@ -20,6 +20,7 @@ class CreateKostsTable extends Migration
             $table->enum('type', ['l', 'p']);
             $table->string('phone_number');
             $table->string('gmap')->nullable();
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

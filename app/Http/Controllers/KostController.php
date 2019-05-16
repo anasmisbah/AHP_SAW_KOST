@@ -14,7 +14,8 @@ class KostController extends Controller
      */
     public function index()
     {
-        return view('kost.index');
+        $kosts = Kost::all();
+        return view('kost.index',compact('kosts'));
     }
 
     /**
@@ -35,7 +36,41 @@ class KostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+            'name'=>'required',
+            'phone_number'=>'required',
+            'address'=>'required',
+            'type'=>'required',
+            'harga'=>'required',
+            'fasilitas'=>'required',
+            'ukuran'=>'required',
+            'jarak'=>'required',
+        ]);
+
+        $foto='';
+        if ($request->file('foto')) {
+            $foto = $request->file('foto')->store('fotos','public');
+        }
+        $kost = Kost::create([
+            'name'=>$request->name,
+            'phone_number'=>$request->phone_number,
+            'address'=>$request->address,
+            'type'=>$request->type,
+            'foto' =>$foto
+        ]);
+        
+        $value =[
+            1=>['value'=>$request->harga],
+            2=>['value'=>$request->fasilitas],
+            3=>['value'=>$request->ukuran],
+            4=>['value'=>$request->jarak],  
+        ];
+
+        $kost->criterias()->attach($value);
+        return redirect()->route('kost.index')->with('status','Kost Baru Berhasil ditambahkan');
+
+
     }
 
     /**
@@ -57,7 +92,7 @@ class KostController extends Controller
      */
     public function edit(Kost $kost)
     {
-        //
+        return view('kost.edit',compact('kost'));
     }
 
     /**
@@ -69,7 +104,36 @@ class KostController extends Controller
      */
     public function update(Request $request, Kost $kost)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'phone_number'=>'required',
+            'address'=>'required',
+            'type'=>'required',
+            'harga'=>'required',
+            'fasilitas'=>'required',
+            'ukuran'=>'required',
+            'jarak'=>'required',
+        ]);
+        $kost->name = $request->name;
+        $kost->phone_number = $request->phone_number;
+        $kost->address = $request->address;
+        $kost->type = $request->type;
+        if ($request->file('foto')) {
+            if ($kost->foto && file_exists(storage_path('app/public/'.$kost->foto))) {
+                Storage::delete('public/'.$kost->foto);
+            }
+            $file = $request->file('foto')->store('fotos','public');
+            $kost->foto = $file;
+        }
+        $kost->save();
+        $value =[
+            1=>['value'=>$request->harga],
+            2=>['value'=>$request->fasilitas],
+            3=>['value'=>$request->ukuran],
+            4=>['value'=>$request->jarak],  
+        ];
+        $kost->criterias()->sync($value);
+        return redirect()->route('kost.index')->with('status','Kost Berhasil diubah');
     }
 
     /**
@@ -80,6 +144,9 @@ class KostController extends Controller
      */
     public function destroy(Kost $kost)
     {
-        //
+        if ($kost->foto && file_exists(storage_path('app/public/'.$kost->foto))) {
+            Storage::delete('public/'.$kost->foto);
+        }
+        $kost->delete();
     }
 }
