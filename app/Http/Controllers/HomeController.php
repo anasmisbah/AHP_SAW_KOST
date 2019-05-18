@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Kost;
+use App\Criteria;
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -24,5 +26,17 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function dashboard()
+    {
+        $kostscnt = Kost::count();
+        $criteriacnt = Criteria::count();
+        $usercnt = User::count();
+        return view('dashboard',[
+            'kostcnt'=>$kostscnt,
+            'criteriacnt'=>$criteriacnt,
+            'usercnt'=>$usercnt
+        ]);
     }
 }
