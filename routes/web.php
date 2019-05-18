@@ -32,6 +32,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('auth/{provider}','Auth\SocialiteController@redirectToProvider');
 Route::get('auth/{provider}/callback','Auth\SocialiteController@handleProviderCallback');
 Route::resource('kost', 'KostController');
+Route::get('/analysis/alternatif','AnalisaAlternatifController@tampilAlternatif')->name('alternatif.tampil');
+Route::get('/analysis/alternatif/proses','AnalisaALternatifController@prosesAlternatif')->name('alternatif.proses');
 Route::get('/addkost', function () {
     $value =[
         1=>['value'=>700000],
@@ -62,6 +64,10 @@ Route::get('/lihatkost', function () {
        for ($j=0; $j < $jmlcriteria ; $j++) { 
             $matriks[$i][$j] = $kost[$i]->criterias[$j]->pivot->value;
        }
+   }
+
+   foreach ($kost as $item) {
+       dd($item->criterias());
    }
    dd($matriks);
    

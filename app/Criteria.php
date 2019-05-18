@@ -11,4 +11,9 @@ class Criteria extends Model
     {
         return $this->belongsToMany(Kost::class)->withPivot('value')->withTimestamps();
     }
+
+    public function priorityvectors()
+    {
+        return $this->hasMany(PvectorCtriteria::class);
+    }
 }
