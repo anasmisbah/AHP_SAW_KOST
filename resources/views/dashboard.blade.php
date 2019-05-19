@@ -34,11 +34,11 @@
     
                 <div class="media">
                     <a href="#">
-                        <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="images/admin.jpg">
+                        <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="{{ asset('storage/'.Auth::user()->avatar) }}">
                     </a>
                     <div class="media-body">
-                        <h2 class="text-white display-6">Jim Doe</h2>
-                        <p class="text-light">Project Manager</p>
+                        <h3 class="text-white display-6">{{ Auth::user()->name }}</h3>
+                        <p class="text-light">{{ Auth::user()->role }}</p>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="stat-widget-one">
-                    <div class="stat-icon dib"><i class="ti-tag-grid2 text-warning border-warning"></i></div>
+                    <div class="stat-icon dib"><i class="ti-tag text-warning border-warning"></i></div>
                     <div class="stat-content dib">
                         <div class="stat-text">Kriteria</div>
                         <div class="stat-digit count">{{ $criteriacnt }}</div>
