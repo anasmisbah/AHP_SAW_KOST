@@ -75,8 +75,19 @@
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h3 class="display-4">SISTEM PENDUKUNG KEPUTUSAN PEMILIHAN KOST DI SAMARINDA</h3>
-          <a class="btn btn-info tombol text-white" onclick="document.getElementById('id01').style.display='block'">Yuk! Mulai</a>
 
+
+          
+          @auth
+            @if (Auth::user()->role == "admin")
+              <a class="btn btn-info tombol text-white" href="{{ route('spkkost.dashboard') }}">Yuk! Mulai</a>
+            @else
+              <a class="btn btn-info tombol text-white" href="{{ route('home') }}">Yuk! Mulai</a>
+            @endif
+          @else
+            <a class="btn btn-info tombol text-white" onclick="document.getElementById('id01').style.display='block'">Yuk! Mulai</a>
+          @endauth
+          
         </div>
       </div>
 
