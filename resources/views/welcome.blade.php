@@ -292,8 +292,8 @@
       <div class="row justify-content-center">
           <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33 animate">
               <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-              <form class="signup100-form validate-form flex-sb flex-w animate" >
-                
+              <form class="signup100-form validate-form flex-sb flex-w animate" method="POST" action="{{ route('register') }}">
+                @csrf
                 <span class="login100-form-title p-b-53">
                   
                   Sign Up With
