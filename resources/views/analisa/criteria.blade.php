@@ -42,7 +42,7 @@
                 $nilai= null ;
                 $first = true;
                 if ($oldPerbandingan->count()) {
-                   $nilai = $oldPerbandingan->where('criteria1_id',$i+1)->where('criteria2_id',$j+1)->first()->nilai;
+                   $nilai = $oldPerbandingan->where('criteria1_id',$kriteria[$i]->id)->where('criteria2_id',$kriteria[$j]->id)->first()->nilai;
                    $first = false;
                 }
                 
