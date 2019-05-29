@@ -5,11 +5,19 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- CSRF Token -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    
+      <!-- font -->
+  <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
+
+  <!-- icon -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
     {{-- css login --}}
     <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="template/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -24,11 +32,11 @@
   <!--===============================================================================================-->
  
 
-    <!-- CSS saya -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    
     <link rel="stylesheet" type="text/css" href="template/login/css/util.css">
     <link rel="stylesheet" type="text/css" href="template/login/css/main.css">
-
+<!-- CSS saya -->
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>SISTEM PENENTU KEPUTUSAN</title>
   </head>
   <body>
@@ -43,22 +51,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link active" href="#">Beranda<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#" tabindex="-1" aria-disabled="true">About</a>
-
-            
+            <a class="nav-item nav-link page-scroll" href="#home" id="home">Beranda<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link page-scroll" href="#tentang">Tentang</a>
+            <a class="nav-item nav-link page-scroll" href="#team">Tim Kami</a>
                 @auth
                     @if (Auth::user()->role == "admin")
                     @endif
                 @else
-                    <button type="submit" class="btn btn-info tombol">
-                        <a class="nav-item btn btn-info tombol" onclick="document.getElementById('id01').style.display='block'" tabindex="-1" aria-disabled="true">Sign In</a>
-                        <a class="nav-item btn btn-info tombol" onclick="document.getElementById('id02').style.display='block'" tabindex="-1" aria-disabled="true">Sign Up</a>
-                    </button>
+                  <a class="nav-item btn btn-success btn-sm tombol text-center"
+                  onclick="document.getElementById('id01').style.display='block'" tabindex="-1" aria-disabled="true">Login</a>
+                  <a class="nav-item btn btn-primary btn-sm tombol text-center ml-3"
+                    onclick="document.getElementById('id02').style.display='block'" tabindex="-1"
+                    aria-disabled="true">Register</a>
                 @endauth
             
-            <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> -->
-
+          
           </div>
     </div>
 
@@ -74,18 +81,21 @@
 
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h3 class="display-4">SISTEM PENDUKUNG KEPUTUSAN PEMILIHAN KOST DI SAMARINDA</h3>
-
+          <h1>Pendukung Keputusan Pencarian <strong>Kost</strong> </h1>
+          <p>Website Pendukung keputusan anda dalam mencari kost di samarinda</p>
 
           
           @auth
             @if (Auth::user()->role == "admin")
-              <a class="btn btn-info tombol text-white" href="{{ route('spkkost.dashboard') }}">Yuk! Mulai</a>
+              <a class="btn btn-warning tombol-cari" href="{{ route('spkkost.dashboard') }}"><i
+                class="fas fa-user"></i>Admin</a>
             @else
-              <a class="btn btn-info tombol text-white" href="{{ route('home') }}">Yuk! Mulai</a>
+              <a class="btn btn-warning tombol-cari" href="{{ route('home') }}"><i
+                class="fas fa-hotel"></i>Yuk! Mulai Pilih</a>
             @endif
           @else
-            <a class="btn btn-info tombol text-white" onclick="document.getElementById('id01').style.display='block'">Yuk! Mulai</a>
+          <a class="btn btn-warning tombol-cari" onclick="document.getElementById('id01').style.display='block'"><i
+            class="fas fa-hotel"></i> Tentukan Kriteriamu Sekarang !</a>
           @endauth
           
         </div>
@@ -130,7 +140,7 @@
         <!-- akhir info panel -->
 
         <!-- Workingspace  -->
-        <div class="row Workingspace">
+        <div class="row Workingspace" id="tentang">
           <div class="col-lg-6">
             <img src="images/about.jpg" alt="" class="img-fluid">
           </div>
@@ -141,62 +151,107 @@
         </div>
 
 
+      </div>
 
 <!--Akhir Workingspace  -->
 
 
 <!-- Nama Kelompol  -->
-<section class="kelompok">
-  <div class="row justify-content-center">
-    <div class="col-lg-8">
-      <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h5>
+  <div class="bg-light pb-5" id="team">
+    <div class="container">
+      <div class="row ">
+        <div class="col-12 text-center text-teams mt-5">
+          <h3>Our Teams</h3>
+        </div>
+      </div>
+      <div class="row our-team mt-5">
+        <div class="col-6">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-3 "><img src="/images/avatarang.png" class="img-circle" alt=""></div>
+                <div class="col-9">
+                  <h5 class="card-title">Anas Misbahuddin</h5>
+                  <p class="card-text">Tukang buat sistem (backend)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-6">
+
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-3 "><img src="/images/avatarang.png" class="img-circle" alt=""></div>
+                <div class="col-9">
+                  <h5 class="card-title">Anas Misbahuddin</h5>
+                  <p class="card-text">Tukang buat sistem (backend)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-6">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-3 "><img src="/images/avatarang.png" class="img-circle" alt=""></div>
+                <div class="col-9">
+                  <h5 class="card-title">Anas Misbahuddin</h5>
+                  <p class="card-text">Tukang buat sistem (backend)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-6">
+
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-3 "><img src="/images/avatarang.png" class="img-circle" alt=""></div>
+                <div class="col-9">
+                  <h5 class="card-title">Anas Misbahuddin</h5>
+                  <p class="card-text">Tukang buat sistem (backend)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-3 "><img src="images/avatarang.png" class="img-circle" alt=""></div>
+                <div class="col-9">
+                  <h5 class="card-title">Anas Misbahuddin</h5>
+                  <p class="card-text">Tukang buat sistem (backend)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="row justify-content-center">
-      <div class="col-6 justify-content-center d-flex">
-
-        <figure class="figure">
-  <img src="images/avatarang.png" class="figure-img img-fluid rounded-circle" alt="kelompok1">
-  <figcaption class="figure-caption">
-    <h5>Anas</h5>
-    <p>NIM</p>
-  </figcaption>
-</figure>
-
-        <figure class="figure">
-  <img src="images/avatarang.png" class="figure-img img-fluid rounded-circle" alt="kelompok2">
-  <figcaption class="figure-caption">
-    <h5>Octafian</h5>
-    <p>NIM</p>
-  </figcaption>
-</figure>
-
-        <figure class="figure">
-  <img src="images/avatarang.png" class="figure-img img-fluid rounded-circle" alt="kelompok2">
-  <figcaption class="figure-caption">
-    <h5>Soleha</h5>
-    <p>NIM</p>
-  </figcaption>
-</figure>
-
-        <figure class="figure">
-  <img src="images/avatarang.png" class="figure-img img-fluid rounded-circle" alt="kelompok2">
-  <figcaption class="figure-caption">
-    <h5>Asrah</h5>
-    <p>NIM</p>
-  </figcaption>
-</figure>
-      </div>
-  </div>
-</section>
 
 
 <!--Akhir Nama Kelompol  -->
 
+<a href="#home" class="page-scroll"><img src="/images/up.png" class="float-right up" height="80px" width="80px" alt=""></a>
 
+<footer class="footer mt-auto py-3 bg-secondary ">
+  <div class="container text-center">
+    <span class="text-white ">&copy; Copyright 2019 Kelompok x | Sistem Pendukung Keputusan </span>
+  </div>
+</footer>
 
-      </div>
 
 
 
@@ -417,6 +472,25 @@
     {{-- login js --}}
     <script src="template/login/vendor/animsition/js/animsition.min.js"></script>
     <script src="template/login/js/main.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+      $('.page-scroll').on('click', function (e) {
+        // ambil isi href
+        let tujuan = $(this).attr('href');
+        //tangkap elemen
+        let elemenHref = $(tujuan);
+        $('body').animate({
+          scrollTop: elemenHref.offset().top
+        },800);
+        
+        // e.preventDefault();
+      });
+  $(window).scroll(function () {  
+    $('.up').show('fadeIn');
+  });
+          
+      
+    </script>
   </body>
 </html>
 
