@@ -474,7 +474,8 @@
     <script src="template/login/js/main.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
-      $('.page-scroll').on('click', function (e) {
+      $(document).ready(function(){
+        $('.page-scroll').on('click', function (e) {
         // ambil isi href
         let tujuan = $(this).attr('href');
         //tangkap elemen
@@ -485,9 +486,12 @@
         
         // e.preventDefault();
       });
-  $(window).scroll(function () {  
+      $(window).scroll(function () {  
     $('.up').show('fadeIn');
   });
+      });
+      
+  
           
       
     </script>
