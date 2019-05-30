@@ -13,6 +13,7 @@
 use App\Kost;
 use App\Criteria;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,6 +33,13 @@ Route::get('auth/{provider}/callback','Auth\SocialiteController@handleProviderCa
 Route::resource('kost', 'KostController');
 Route::get('/analysis/alternatif','AnalisaAlternatifController@tampilAlternatif')->name('alternatif.tampil');
 Route::get('/analysis/alternatif/proses','AnalisaALternatifController@prosesAlternatif')->name('alternatif.proses');
+
+Route::get('analysis/user/perbandingankriteria','AnalisaCriteriaController@userCriteriaIndex')->name('user.perbandingankriteria');
+Route::post('analysis/user/perbandingankriteria/proses','AnalisaCriteriaController@userProses')->name('user.analisakriteria');
+Route::get('analysis/user/alternatif','AnalisaAlternatifController@userAlternatif')->name('user.alternatif');
+Route::get('analysis/user/alternatif/proses','AnalisaAlternatifController@userProsesAlternatif')->name('user.alternatifproses');
+Route::get('/alternatif/hasilrangking','UserController@hasilRangking')->name('user.hasilrangking');
+Route::get('/alternatif/kost','KostController@userIndex')->name('user.kostindex');
 Route::get('/addkost', function () {
     $value =[
         1=>['value'=>700000],
@@ -70,3 +78,4 @@ Route::get('/lihatkost', function () {
    dd($matriks);
    
 });
+

@@ -150,4 +150,10 @@ class KostController extends Controller
         }
         $kost->delete();
     }
+
+    public function userIndex()
+    {
+        $kosts= Kost::paginate(6);
+        return view('utama.kostindex',compact('kosts'));
+    }
 }

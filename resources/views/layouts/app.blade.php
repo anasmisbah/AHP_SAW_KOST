@@ -63,11 +63,11 @@
         <ul class="nav-menu">
           <li class="menu-active"><a href="#hero">Home</a></li>
           <li><a href="#about-us">How To</a></li>
-          <li><a href="#team">Team</a></li>
+          <li><a href="{{ route('user.kostindex') }}">Kost</a></li>
           <li class="menu-has-children"><a href="">Analisa</a>
             <ul>
-              <li><a href="#">Pemilihan Kost</a></li>
-              <li><a href="#">Hasil Perangkingan</a></li>
+              <li><a href="{{ route('user.perbandingankriteria') }}">Pemilihan Kost</a></li>
+              <li><a href="{{ route('user.hasilrangking') }}">Hasil Perangkingan</a></li>
             </ul>
           </li>
           <li class="menu-has-children"><a href=""><img src="{{ asset('storage/'.Auth::user()->avatar) }}" alt="" width="20px"></a>
@@ -134,6 +134,6 @@
 
   <!-- Template Main Javascript File -->
   <script src="/lib/js/main.js"></script>
-
+  @yield('script')
 </body>
 </html>

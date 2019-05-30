@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use App\PreferensiAlternatif;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -128,5 +130,11 @@ class UserController extends Controller
         }
         $user->delete();
        return redirect()->route('user.index')->with('status', 'pengguna berhasil dihapus');
+    }
+
+    public function hasilRangking()
+    {
+        $pvs = PreferensiAlternatif::where('user_id',Auth::user()->id)->orderBy('preferensi','desc')->get();
+        return view('utama.rangking',compact('pvs'));
     }
 }
