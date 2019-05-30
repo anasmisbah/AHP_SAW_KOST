@@ -27,7 +27,7 @@
                     }
                     
                 @endphp
-                <div class="col-md-12 col-lg-6">
+                <div class="col-md-12 col-lg-6 mb-3">
                     <div class="feature-block">
         
                     <img src="/lib/img/svg/cloud.svg" alt="img" class="img-fluid">

@@ -39,7 +39,7 @@
 
   <!-- Main Stylesheet File -->
   <link href="/lib/css/style.css" rel="stylesheet">
-
+  @yield('css')
   <!-- =======================================================
     Theme Name: eStartup
     Theme URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
@@ -54,15 +54,15 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <h1><a href="#body" class="scrollto"><span>e</span>Startup</a></h1>
+        <h1><a href="#hero" class="scrollto"><span>spk</span>Kost</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#hero">Home</a></li>
-          <li><a href="#about-us">How To</a></li>
+          <li class="menu-active"><a href="{{ route('home') }}">Home</a></li>
+          <li><a href="#get-started">How To</a></li>
           <li><a href="{{ route('user.kostindex') }}">Kost</a></li>
           <li class="menu-has-children"><a href="">Analisa</a>
             <ul>

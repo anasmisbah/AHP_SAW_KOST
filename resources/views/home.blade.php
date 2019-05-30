@@ -1,5 +1,12 @@
 @extends('layouts.app')
+@section('css')
+<style type="text/css">
+  .garis{
+      border-bottom: 5px solid #efedec8f;
+  }
+</style>
 
+@endsection
 @section('content')
 <!--==========================
     Hero Section
@@ -21,47 +28,76 @@
     <div class="container">
       <div class="section-title text-center">
 
-        <h2>simple systeme fordiscount </h2>
-        <p class="separator">Integer cursus bibendum augue ac cursus .</p>
+        <h2>Tata Cara Menggunakan Sistem Kami</h2>
 
       </div>
     </div>
-
-  </section>
-
-  <!--==========================
-    About Us Section
-  ============================-->
-  <section id="about-us" class="about-us padd-section wow fadeInUp">
     <div class="container">
-      <div class="row justify-content-center">
+        <div class="row mb-4 garis" >
+            
+                <div class="col-sm-5 col-md-5 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <img src="http://kkn.fkti.unmul.ac.id/triangle/multicolor/images/pendaftaran2.jpg" class="img-responsive" alt="">
+                </div>
+                <div class="col-sm-6 col-md-7 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms" >
+                    <h3><strong>1. Pendaftaran Online </strong></h3>
+                    <P>Lakukan Pendaftaran terlebih dahulu pada website kkn.fkti.unmul.ac.id, gunakan nim dan password portal anda untuk sign in, isi form dengan lengkap, upload Scan KTM, Transakrip dalam bentuk PDF dan Foto 3x4 dengan format jpg </P>
 
-        <div class="col-md-5 col-lg-3">
-          <img src="img/about-img.png" alt="About">
+                </div>
+
+        </div>
+        <div class="row mb-4 garis" >
+            <div class="col-sm-6 col-md-7 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms" >
+                <h3><strong>2. Melihat Alternatif kost </strong></h3>
+                <P>Lakukan Pendaftaran terlebih dahulu pada website kkn.fkti.unmul.ac.id, gunakan nim dan password portal anda untuk sign in, isi form dengan lengkap, upload Scan KTM, Transakrip dalam bentuk PDF dan Foto 3x4 dengan format jpg </P>
+
+            </div>
+            <div class="col-sm-5 col-md-5 wow fadeInRight " data-wow-duration="500ms" data-wow-delay="300ms">
+                <img src="http://kkn.fkti.unmul.ac.id/triangle/multicolor/images/pendaftaran2.jpg" class="img-responsive" alt="">
+            </div>
+            
+
+    </div>
+    <div class="row mb-4 garis" >
+            
+        <div class="col-sm-5 col-md-5 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+            <img src="http://kkn.fkti.unmul.ac.id/triangle/multicolor/images/pendaftaran2.jpg" class="img-responsive" alt="">
+        </div>
+        <div class="col-sm-6 col-md-7 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms" >
+            <h3><strong>3. Perbandingan Kriteria </strong></h3>
+            <P>Lakukan Pendaftaran terlebih dahulu pada website kkn.fkti.unmul.ac.id, gunakan nim dan password portal anda untuk sign in, isi form dengan lengkap, upload Scan KTM, Transakrip dalam bentuk PDF dan Foto 3x4 dengan format jpg </P>
+
         </div>
 
-        <div class="col-md-7 col-lg-5">
-          <div class="about-content">
+</div>
+<div class="row mb-4 garis" >
+    <div class="col-sm-6 col-md-7 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms" >
+        <h3><strong>4. Perhitungan Alternatif Kost </strong></h3>
+        <P>Lakukan Pendaftaran terlebih dahulu pada website kkn.fkti.unmul.ac.id, gunakan nim dan password portal anda untuk sign in, isi form dengan lengkap, upload Scan KTM, Transakrip dalam bentuk PDF dan Foto 3x4 dengan format jpg </P>
 
-            <h2><span>eStartup</span>UI Design Mobile </h2>
-            <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-            </p>
+    </div>
+    <div class="col-sm-5 col-md-5 wow fadeInRight " data-wow-duration="500ms" data-wow-delay="300ms">
+        <img src="http://kkn.fkti.unmul.ac.id/triangle/multicolor/images/pendaftaran2.jpg" class="img-responsive" alt="">
+    </div>
+    
 
-            <ul class="list-unstyled">
-              <li><i class="fa fa-angle-right"></i>Creative Design</li>
-              <li><i class="fa fa-angle-right"></i>Retina Ready</li>
-              <li><i class="fa fa-angle-right"></i>Easy to Use</li>
-              <li><i class="fa fa-angle-right"></i>Unlimited Features</li>
-              <li><i class="fa fa-angle-right"></i>Unlimited Features</li>
-            </ul>
+</div>
+<div class="row mb-4 garis" >
+            
+    <div class="col-sm-5 col-md-5 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+        <img src="http://kkn.fkti.unmul.ac.id/triangle/multicolor/images/pendaftaran2.jpg" class="img-responsive" alt="">
+    </div>
+    <div class="col-sm-6 col-md-7 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms" >
+        <h3><strong>5. Rangking Kost </strong></h3>
+        <P>Lakukan Pendaftaran terlebih dahulu pada website kkn.fkti.unmul.ac.id, gunakan nim dan password portal anda untuk sign in, isi form dengan lengkap, upload Scan KTM, Transakrip dalam bentuk PDF dan Foto 3x4 dengan format jpg </P>
 
-          </div>
-        </div>
+    </div>
 
-      </div>
+</div>
+
     </div>
   </section>
 
+ 
   
 
 
