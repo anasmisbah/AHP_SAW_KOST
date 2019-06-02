@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="template/login/css/main.css">
 <!-- CSS saya -->
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <title>SISTEM PENENTU KEPUTUSAN</title>
+    <title>SPK KOST</title>
   </head>
   <body>
 

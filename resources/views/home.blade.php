@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-sm-6 col-md-7 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms" >
                     <h3><strong>1. Pendaftaran Online </strong></h3>
-                    <P>Lakukan Pendaftaran terlebih dahulu pada website kkn.fkti.unmul.ac.id, gunakan nim dan password portal anda untuk sign in, isi form dengan lengkap, upload Scan KTM, Transakrip dalam bentuk PDF dan Foto 3x4 dengan format jpg </P>
+                    <P>lakukan pendataran terlebih dahulu pada website spk kost dengan menggunakan email dan password. namun apabilan anda telah memiliki akun silahkan sign in dengan akun anda sebelumnya. kami juga menyediakan opsi untuk login menggunakan akun social media anda seperti facebook dan google</P>
 
                 </div>
 
@@ -48,7 +48,7 @@
         <div class="row mb-4 garis" >
             <div class="col-sm-6 col-md-7 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms" >
                 <h3><strong>2. Melihat Alternatif kost </strong></h3>
-                <P>Lakukan Pendaftaran terlebih dahulu pada website kkn.fkti.unmul.ac.id, gunakan nim dan password portal anda untuk sign in, isi form dengan lengkap, upload Scan KTM, Transakrip dalam bentuk PDF dan Foto 3x4 dengan format jpg </P>
+                <P>silahkan lihat terlebih dahulu alternatif kost yang telah kami sediakan pada menu "kost". kami memiliki lebih dari 100++ alternatif kos yang berada disekitaran universitas mulawarman dengan harga,fasilitas,ukuran dan jarak yang bervariasi bagi anda.</P>
 
             </div>
             <div class="col-sm-5 col-md-5 wow fadeInRight " data-wow-duration="500ms" data-wow-delay="300ms">
@@ -64,7 +64,8 @@
         </div>
         <div class="col-sm-6 col-md-7 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms" >
             <h3><strong>3. Perbandingan Kriteria </strong></h3>
-            <P>Lakukan Pendaftaran terlebih dahulu pada website kkn.fkti.unmul.ac.id, gunakan nim dan password portal anda untuk sign in, isi form dengan lengkap, upload Scan KTM, Transakrip dalam bentuk PDF dan Foto 3x4 dengan format jpg </P>
+            <P>apabila anda telah yakin dan ingin menggunakan sistem kami untuk membantu anda memilih kost terbaik sesuai dengan kriteria yang anda inginkan maka silahkan menuju menu analisa kemudia pilih menu perbandingan kriteria. pada menu tersebut anda akan melakukan pemilihan kriteria dan nilai perbandingan kriteria tersebut dengan kriteria pasangannya.sistem kami akan melakukan perhitungan bobot kriteria menggunakan metode AHP.
+              </P>
 
         </div>
 
@@ -72,7 +73,7 @@
 <div class="row mb-4 garis" >
     <div class="col-sm-6 col-md-7 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms" >
         <h3><strong>4. Perhitungan Alternatif Kost </strong></h3>
-        <P>Lakukan Pendaftaran terlebih dahulu pada website kkn.fkti.unmul.ac.id, gunakan nim dan password portal anda untuk sign in, isi form dengan lengkap, upload Scan KTM, Transakrip dalam bentuk PDF dan Foto 3x4 dengan format jpg </P>
+        <P>setelah mendapatkan bobot untuk masing-masing kriteria maka selanjutnya adalah menentukan kost terbaik bagi anda sesuai dengan kriteria yang anda inginkan. sistem kami akan secara otomatis melakukan perhitungan dengan menggunakan metode SAW</P>
 
     </div>
     <div class="col-sm-5 col-md-5 wow fadeInRight " data-wow-duration="500ms" data-wow-delay="300ms">
@@ -88,7 +89,7 @@
     </div>
     <div class="col-sm-6 col-md-7 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms" >
         <h3><strong>5. Rangking Kost </strong></h3>
-        <P>Lakukan Pendaftaran terlebih dahulu pada website kkn.fkti.unmul.ac.id, gunakan nim dan password portal anda untuk sign in, isi form dengan lengkap, upload Scan KTM, Transakrip dalam bentuk PDF dan Foto 3x4 dengan format jpg </P>
+        <P>tahapan selanjutnya adalah melihat hasil rangking kost yang telah didapatkan. pada kost urutan pertama adalah kost yang sesuai bagi anda.</P>
 
     </div>
 
