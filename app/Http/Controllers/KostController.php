@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Kost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class KostController extends Controller
 {
@@ -149,11 +150,36 @@ class KostController extends Controller
             Storage::delete('public/'.$kost->foto);
         }
         $kost->delete();
+        return redirect()->route('kost.index')->with('status','Kost Berhasil dihapus');
     }
 
     public function userIndex()
     {
-        $kosts= Kost::paginate(6);
+        $kosts= Kost::paginate(9);
         return view('utama.kostindex',compact('kosts'));
     }
+
+    public function detailApi(Request $request)
+    {
+        $kost = DB::table('kosts')->where('kosts.id',$request->id)->first();
+        $nilaikriteria = DB::table('kosts')->join('criteria_kost','kosts.id','=','criteria_kost.kost_id')
+                ->join('criterias','criterias.id','=','criteria_kost.criteria_id')->select('kosts.*','criteria_kost.value','criterias.name')
+                ->where('kosts.id',$request->id)->get();
+                
+        $kostarray = [
+            'id'=>$kost->id,
+            'name'=>$kost->name,
+            'address'=>$kost->address,
+            'type'=>$kost->type,
+            'phone_number'=> $kost->phone_number,
+            'foto'=>$kost->foto,
+        ];
+        
+        foreach ($nilaikriteria as $nilai ) {
+            $kostarray[$nilai->name]=$nilai->value;
+            
+        }
+        return response()->json($kostarray);
+    }
+    
 }

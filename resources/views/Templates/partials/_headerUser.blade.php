@@ -14,7 +14,6 @@
 
                 <div class="user-menu dropdown-menu">
                     <a class="nav-link" href="#"><i class="fa fa-user"></i> Administrator</a>
-                    <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
                     <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
                     <a class="nav-link" href="{{ route('logout') }}"onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Logout</a>
