@@ -81,8 +81,8 @@
 
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1>Pendukung Keputusan Pencarian <strong>Kost</strong> </h1>
-          <p>Website Pendukung keputusan anda dalam mencari kost di samarinda</p>
+          <h1>Sistem Pendukung Keputusan Pemilihan <strong>Kost</strong> </h1>
+          <p>Website Pendukung keputusan anda dalam Memilih kost di samarinda</p>
 
           
           @auth
@@ -169,10 +169,10 @@
           <div class="card">
             <div class="card-body">
               <div class="row">
-                <div class="col-3 "><img src="/images/avatarang.png" class="img-circle" alt=""></div>
+                <div class="col-3 "><img src="/images/anas.jpg" class="img-circle" alt=""></div>
                 <div class="col-9">
                   <h5 class="card-title">Anas Misbahuddin</h5>
-                  <p class="card-text">Tukang buat sistem (backend)</p>
+                  <p class="card-text">1615015189</p>
                 </div>
               </div>
             </div>
@@ -184,10 +184,10 @@
           <div class="card">
             <div class="card-body">
               <div class="row">
-                <div class="col-3 "><img src="/images/avatarang.png" class="img-circle" alt=""></div>
+                <div class="col-3 "><img src="/images/leha.png" class="img-circle" alt=""></div>
                 <div class="col-9">
                   <h5 class="card-title">Maratus Soleha</h5>
-                  <p class="card-text">Tukang buat sistem (backend)</p>
+                  <p class="card-text">1615015054</p>
                 </div>
               </div>
             </div>
@@ -199,10 +199,10 @@
           <div class="card">
             <div class="card-body">
               <div class="row">
-                <div class="col-3 "><img src="/images/avatarang.png" class="img-circle" alt=""></div>
+                <div class="col-3 "><img src="/images/asrah.png" class="img-circle" alt=""></div>
                 <div class="col-9">
                   <h5 class="card-title">Asrah</h5>
-                  <p class="card-text">Tukang buat sistem (backend)</p>
+                  <p class="card-text">1615015163</p>
                 </div>
               </div>
             </div>
@@ -217,7 +217,7 @@
                 <div class="col-3 "><img src="/images/avatarang.png" class="img-circle" alt=""></div>
                 <div class="col-9">
                   <h5 class="card-title">Dana Ananda N</h5>
-                  <p class="card-text">Tukang buat sistem (backend)</p>
+                  <p class="card-text">1515015003</p>
                 </div>
               </div>
             </div>
@@ -227,10 +227,10 @@
           <div class="card">
             <div class="card-body">
               <div class="row">
-                <div class="col-3 "><img src="images/avatarang.png" class="img-circle" alt=""></div>
+                <div class="col-3 "><img src="images/pian.png" class="img-circle" alt=""></div>
                 <div class="col-9">
                   <h5 class="card-title">Octafian Christianto</h5>
-                  <p class="card-text">Tukang buat sistem (backend)</p>
+                  <p class="card-text">1615015171</p>
                 </div>
               </div>
             </div>
