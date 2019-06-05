@@ -473,22 +473,28 @@
     <script src="template/login/vendor/animsition/js/animsition.min.js"></script>
     <script src="template/login/js/main.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
       $(document).ready(function(){
         $('.page-scroll').on('click', function (e) {
-        // ambil isi href
-        let tujuan = $(this).attr('href');
-        //tangkap elemen
-        let elemenHref = $(tujuan);
-        $('body').animate({
-          scrollTop: elemenHref.offset().top
-        },800);
-        
-        // e.preventDefault();
+            // ambil isi href
+            let tujuan = $(this).attr('href');
+            //tangkap elemen
+            let elemenHref = $(tujuan);
+            $('body').animate({
+              scrollTop: elemenHref.offset().top
+            },800);
+            
+            // e.preventDefault();
+          });
+          $(window).scroll(function () {  
+        $('.up').show('fadeIn');
       });
-      $(window).scroll(function () {  
-    $('.up').show('fadeIn');
-  });
+
+      var errors = "{{ $errors->first() }}"
+      if (errors) {
+        swal('Login Failed',errors,'error')
+      }
       });
       
   

@@ -102,6 +102,12 @@
 <!--===============================================================================================-->
 
 	<script src="{{ asset('template/login/js/main.js') }}"></script>
-
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+var errors = "{{ $errors->first() }}"
+      if (errors) {
+        swal('Login Failed :(',errors,'error')
+      }
+</script>
 </body>
 </html>

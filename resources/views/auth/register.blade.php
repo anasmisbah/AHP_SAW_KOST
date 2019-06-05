@@ -125,7 +125,7 @@
            var error ="{{ $errors->first() }}";
            if (error != '') {
                     swal({
-                        title: "Bad :(",
+                        title: "register Failed :(",
                         text: error,
                         icon: "error",
                     });
