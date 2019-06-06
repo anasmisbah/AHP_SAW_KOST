@@ -5,7 +5,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>SPK Kost</title>
+  <title>SPK Pikos</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -20,7 +20,7 @@
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   
-  <link href="/lib/img/favicon.png" rel="icon">
+  <link rel="shortcut icon" href="/images/favicon.ico">
   <link href="/lib/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -54,17 +54,19 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <h1><a href="#hero" class="scrollto"><span>spk</span>Kost</a></h1>
+        <h1><a href="#hero" class="scrollto"><span>spk</span>PiKos</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="{{ route('home') }}">Home</a></li>
-          <li><a href="#get-started">How To</a></li>
-          <li><a href="{{ route('user.kostindex') }}">Kost</a></li>
-          <li class="menu-has-children"><a href="">Analisa</a>
+          <li class="{{ Request::segment(1) == 'home'?'menu-active':'' }}"><a href="{{ route('home') }}">Home</a></li>
+          @if (Auth::user()->role == "admin")
+           <li><a href="{{ url('/dashboard') }}">Admin</a></li>
+          @endif
+          <li class="{{ Request::segment(2) == 'kost'?'menu-active':'' }}"><a href="{{ route('user.kostindex') }}">Kost</a></li>
+          <li class="menu-has-children {{ Request::segment(2) == 'user'?'menu-active':'' }}"><a>Analisa</a>
             <ul>
               <li><a href="{{ route('user.perbandingankriteria') }}">Pemilihan Kost</a></li>
               <li><a href="{{ route('user.hasilrangking') }}">Hasil Perangkingan</a></li>
@@ -72,8 +74,8 @@
           </li>
           <li class="menu-has-children"><a href=""><img src="{{ asset('storage/'.Auth::user()->avatar) }}" alt="" width="20px"></a>
             <ul>
-              <li><a href="#">{{ Auth::user()->name }}</a></li>
-              <li><a href="#">Setting</a></li>
+              <li><a>{{ Auth::user()->name }}</a></li>
+              <li><a href="{{ route('user.setting') }}">Setting</a></li>
               <li>
                 <a href="{{ route('logout') }}"onclick="event.preventDefault();
                               document.getElementById('logout-form').submit();">
@@ -137,8 +139,6 @@
   <script src="/lib/modal-video/js/modal-video.js"></script>
   <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="/lib/wow/wow.min.js"></script>
-  <!-- Contact Form JavaScript File -->
-  <script src="/lib/contactform/contactform.js"></script>
 
   <!-- Template Main Javascript File -->
   <script src="/lib/js/main.js"></script>

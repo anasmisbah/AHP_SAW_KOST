@@ -137,4 +137,56 @@ class UserController extends Controller
         $pvs = PreferensiAlternatif::where('user_id',Auth::user()->id)->orderBy('preferensi','desc')->get();
         return view('utama.rangking',compact('pvs'));
     }
+
+    public function updateadmin(Request $request,$id)
+    {
+        $user = User::findOrFail($id);
+
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|email|unique:users,email,'.$user->id,
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if (!empty($request->password)) {
+            $user->password = Hash::make($request->password);    
+        }
+        
+        $user->role = $request->role;
+        if ($request->file('avatar')) {
+            if ($user->avatar && file_exists(storage_path('app/public/'.$user->avatar))) {
+                Storage::delete('public/'.$user->avatar);
+            }
+            $file = $request->file('avatar')->store('avatars','public');
+            $user->avatar = $file;
+        }
+        $user->save();
+        return redirect()->route('admin.setting')->with('status','Admin berhasil diubah');
+    }
+
+    public function updateuser(Request $request)
+    {
+        $user = User::findOrFail(Auth::user()->id);
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|email|unique:users,email,'.$user->id,
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if (!empty($request->password)) {
+            $user->password = Hash::make($request->password);    
+        }
+        
+        if ($request->file('avatar')) {
+            if ($user->avatar && file_exists(storage_path('app/public/'.$user->avatar))) {
+                Storage::delete('public/'.$user->avatar);
+            }
+            $file = $request->file('avatar')->store('avatars','public');
+            $user->avatar = $file;
+        }
+        $user->save();
+        return redirect()->route('user.setting')->with('status','Admin berhasil diubah');
+    }
 }

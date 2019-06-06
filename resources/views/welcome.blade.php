@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="template/login/vendor/animsition/css/animsition.min.css">
   <!--===============================================================================================-->
  
-
+  <link rel="shortcut icon" href="/images/favicon.ico">
     
     <link rel="stylesheet" type="text/css" href="template/login/css/util.css">
     <link rel="stylesheet" type="text/css" href="template/login/css/main.css">
@@ -45,7 +45,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <a class="navbar-brand" href="#">TENOS</a>
+        <a class="navbar-brand" href="{{ url('/') }}">Spk Pikos</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -320,7 +320,7 @@
                               Not a member?
                             </span>
                 
-                            <a href="#" class="txt2 bo1">
+                            <a href="{{ url('/register') }}" class="txt2 bo1">
                               Sign up now
                             </a>
                           </div>
@@ -429,7 +429,7 @@
                       Already have an account?
                   </span>
       
-                  <a href="#" class="txt2 bo1">
+                  <a href="{{ url('/login') }}" class="txt2 bo1">
                     Sign in now
                   </a>
                 </div>

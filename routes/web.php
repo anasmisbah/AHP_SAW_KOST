@@ -36,8 +36,11 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/alternatif/hasilrangking','UserController@hasilRangking')->name('user.hasilrangking');
     Route::get('/alternatif/kost','KostController@userIndex')->name('user.kostindex');
     Route::get('/detail/kost','KostController@detailApi')->name('kost.detail');
-
+    Route::view('/user/setting','user.user')->name('user.setting');
+    Route::post('/user/update','UserController@updateuser')->name('user.updateprofile');
     Route::middleware(['admin'])->group(function (){
+        Route::view('/setting', 'auth.setting')->name('admin.setting');
+        Route::post('/admin/update/{id}','UserController@updateadmin')->name('admin.update');
         Route::resource('criteria', 'CriteriaController');
         Route::resource('user', 'UserController');
         Route::get('/dashboard','HomeController@dashboard')->name('spkkost.dashboard');
