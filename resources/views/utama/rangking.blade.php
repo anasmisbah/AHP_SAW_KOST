@@ -15,7 +15,7 @@
                                             <strong class="card-title">Tabel Prangkingan</strong>
                                         </div>
                                         <div class="card-body">
-                                            <table class="table text-center">
+                                            <table class="table table-hover text-center">
                                                 <thead class="thead-dark">
                                                     <tr>
                                                             <th>ALternatif Kost</th>
@@ -24,7 +24,7 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach ($pvs as $pv)
-                                                        <tr>
+                                                        <tr class="{{ $loop->iteration == 1 ? 'table-success':'' }}">
                                                             <td>{{ $pv->kost->name }}</td>
                                                             <td>{{ round($pv->preferensi,3) }}</td>
                                                             
@@ -39,4 +39,21 @@
                     </div>
         </div>
 </section>
+@endsection
+@section('script')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var message = "{{ $status?? '' }}"
+            console.log(message);
+            
+            if (message) {
+                swal({
+                        title: "Ooops..!",
+                        text: message,
+                        icon: "error",
+                    });  
+            } 
+        });
+    </script>
 @endsection

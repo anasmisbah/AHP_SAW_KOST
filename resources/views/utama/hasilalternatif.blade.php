@@ -48,6 +48,13 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <div class="col-md-6 offset-md-3">
+                                <a href="{{ route('user.hasilrangking') }}" class="btn btn-primary btn-lg btn-block"><i class="fa fa-tasks"></i>&nbsp;Hasil Perangkingan</a>
+                        </div>
+                        </div>
+                    </div>
         </div>
 </section>
 @endsection

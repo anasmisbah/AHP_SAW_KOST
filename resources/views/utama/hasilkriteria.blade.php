@@ -143,8 +143,9 @@
 </section>
 
 @endsection
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 @section('script')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $(document).ready(function(){
             let cr = $('#cr').html();

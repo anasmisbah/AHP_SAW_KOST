@@ -164,7 +164,7 @@ class AnalisaAlternatifController extends Controller
         }
 
         $preferensiFromDB = PreferensiAlternatif::where('user_id',Auth::user()->id)->orderBy('preferensi','desc')->first();
-
+        
         return view('utama.hasilalternatif',[
             'matriksnormalisasi'=>$matriksnormalisasi,
             'preferensi'=>$preferensi,

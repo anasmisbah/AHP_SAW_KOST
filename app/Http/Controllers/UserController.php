@@ -135,6 +135,10 @@ class UserController extends Controller
     public function hasilRangking()
     {
         $pvs = PreferensiAlternatif::where('user_id',Auth::user()->id)->orderBy('preferensi','desc')->get();
+        $status ='Mohon Maaf Anda Belum Pernah Melakukan Perhitungan Sebelumnya, Silahkan menuju menu pemilihan kost atau membaca tata cara pada halaman home';
+        if ($pvs->count() <= 0) {
+            return view('utama.rangking',compact('pvs','status'));
+        }
         return view('utama.rangking',compact('pvs'));
     }
 

@@ -138,7 +138,7 @@
                             </button>
                     </div>
                     <div class="col-md-6 offset-md-3">
-                            <a href="" class="btn btn-outline-success btn-lg btn-block"><i class="fa fa-location-arrow"></i>&nbsp;Lanjutkan</a>
+                            <a href="{{ route('alternatif.tampil') }}" class="btn btn-outline-success btn-lg btn-block"><i class="fa fa-location-arrow"></i>&nbsp;Lanjutkan</a>
                     </div>
                 
                 @else
